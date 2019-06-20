@@ -1,3 +1,8 @@
 <resources>
     <string name="app_name">alpha</string>
+    <string name="hint_phone_number">شماره همراه</string>
+    <string name="title_phone_login">ورود به کاربری</string>
+    <string name="text_phone_login">لطفا شماره همراه دوازده رقمی خود را برای ورود به اپلیکیشن در کادر زیر وارد نمایید و دکمه ارسال را فشار دهید.</string>
+    <string name="button_phone_send">ارسال</string>
+    <string name="toolbar_phone_title">ورود به کاربری</string>
 </resources>
