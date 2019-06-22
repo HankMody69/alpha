@@ -1,11 +1,17 @@
 package com.example.alpha.ui.login.phone
 
+import android.content.Intent
 import android.os.Bundle
+import android.os.Handler
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import com.example.alpha.R
+import com.example.alpha.ui.login.code.CodeActivity
+import com.example.alpha.util.Utils
+import com.example.alpha.util.snack
 import kotlinx.android.synthetic.main.fragment_phone.*
 
 class PhoneFragment : Fragment(), PhoneContract.View {
@@ -18,11 +24,46 @@ class PhoneFragment : Fragment(), PhoneContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        button_phone_send.setOnClickListener { mPresenter.login("09127201487", "123") }
+        initUiListeners()
+    }
+
+    private fun initUiListeners() {
+        button_phone_send.setOnClickListener {
+            Utils.hideKeyboard(this.activity!!)
+            if (validatePhone()) {
+                Log.i("PhoneInfo", getFUllPhoneNumber())
+                mPresenter.login(getFUllPhoneNumber(), Utils.udid(context!!))
+            } else {
+                setMessage("شماره همراه وارد شده صحیح نمی‌باشد.")
+            }
+        }
     }
 
     override fun setMessage(message: String) {
+        linearlayout_phone_root.snack(message) {}
+    }
 
+    override fun enableSend() {
+        button_phone_send.isEnabled = true
+    }
+
+    override fun disableSend() {
+        button_phone_send.isEnabled = false
+    }
+
+    override fun openNextActivity(bundle: Bundle) {
+        Handler().postDelayed({
+            val launchIntent = Intent(context, CodeActivity::class.java)
+            launchIntent.putExtra("data", bundle)
+            startActivity(launchIntent)
+        }, 2500)
+    }
+
+    private fun getFUllPhoneNumber() =
+        edittext_phone_countrycode.text.toString() + edittext_phone_phonenumber.text.toString()
+
+    private fun validatePhone(): Boolean {
+        return edittext_phone_countrycode.text.toString().isNotBlank() && edittext_phone_phonenumber.text.isNotBlank()
     }
 
     companion object {

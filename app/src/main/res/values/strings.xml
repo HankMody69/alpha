@@ -1,8 +1,25 @@
 <resources>
-    <string name="app_name">alpha</string>
+    <string name="app_name">آلفا</string>
     <string name="hint_phone_number">شماره همراه</string>
     <string name="title_phone_login">ورود به کاربری</string>
-    <string name="text_phone_login">لطفا شماره همراه دوازده رقمی خود را برای ورود به اپلیکیشن در کادر زیر وارد نمایید و دکمه ارسال را فشار دهید.</string>
+    <string name="text_phone_login">لطفا شماره همراه دوازده رقمی خود را برای ورود به اپلیکیشن وارد نمایید و دکمه ارسال را فشار دهید.</string>
     <string name="button_phone_send">ارسال</string>
     <string name="toolbar_phone_title">ورود به کاربری</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="text_home_welcome">خوش آمدید</string>
+    <string name="menu_home_currencylist">واحدهای پولی</string>
+    <string name="menu_home_exchange">تبدیل واحد ارزی</string>
+    <string name="menu_home_wallets">کیف پول‌های من</string>
+
+    <string name="success_phone_response">دریافت اطلاعات موفقیت‌آمیز بود.</string>
+    <string name="toolbar_code_title">فعال‌سازی</string>
+    <string name="button_code_submit">تایید و ارسال</string>
+    <string name="text_code_acive">برای فعال‌سازی کاربری خود پیامک ارسالی به شماره وارد شده در مرحله قبل را در کادر وارد کرده و ادامه دهید.</string>
 </resources>

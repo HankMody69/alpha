@@ -16,6 +16,6 @@ class PhoneActivity : AppCompatActivity() {
         supportActionBar?.setDisplayShowTitleEnabled(false)
         val fragment = PhoneFragment.newInstance()
         supportFragmentManager.beginTransaction().replace(R.id.framelayout_phone_container, fragment).commit()
-        PhonePresenter(fragment)
+        PhonePresenter(this, fragment)
     }
 }
