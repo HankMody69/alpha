@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:background="@color/colorPrimary"
+    android:background="#7f7f7f"
     android:gravity="bottom"
     android:orientation="vertical"
     android:paddingLeft="@dimen/activity_horizontal_margin"
@@ -14,10 +14,11 @@
     <TextView
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="right"
+        android:gravity="center"
         android:textColor="#ffffff"
         android:paddingTop="@dimen/nav_header_vertical_spacing"
         android:text="+98XXXXXXXXXX"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
+        android:textSize="16sp"
+        android:fontFamily="@font/font_iransansmobile_bold" />
 
 </LinearLayout>

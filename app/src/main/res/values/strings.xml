@@ -22,4 +22,8 @@
     <string name="toolbar_code_title">فعال‌سازی</string>
     <string name="button_code_submit">تایید و ارسال</string>
     <string name="text_code_acive">برای فعال‌سازی کاربری خود پیامک ارسالی به شماره وارد شده در مرحله قبل را در کادر وارد کرده و ادامه دهید.</string>
+    <string name="hint_exchange_base">مبلغ واحد (دلار)</string>
+    <string name="hint_exchange_converted">مبلغ واحد تبدیل شده</string>
+    <string name="toolbar_exchange_title">تبدیل ارزی</string>
+    <string name="hint_spinner_choosecurrency">انتخاب واحد تبدیل شونده</string>
 </resources>

@@ -42,6 +42,7 @@
             android:layout_gravity="start"
             app:headerLayout="@layout/nav_header_home"
             app:menu="@menu/activity_home_drawer"
+            app:itemIconTint="#7f7f7f"
             app:itemTextAppearance="@style/NavigationViewItemTextAppearance"/>
 
     </androidx.drawerlayout.widget.DrawerLayout>

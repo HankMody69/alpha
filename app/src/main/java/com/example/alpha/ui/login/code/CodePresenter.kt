@@ -1,6 +1,7 @@
 package com.example.alpha.ui.login.code
 
 import android.content.Context
+import android.util.Log
 import com.example.alpha.data.network.ApiService
 import com.example.alpha.data.network.model.ActivationResponse
 import com.example.alpha.data.preferences.UserPreferencesHelper
@@ -15,7 +16,7 @@ class CodePresenter(private val context: Context, private val codeView: CodeCont
     }
 
     override fun activateLogin(code: String, phone: String, udid: String) {
-        ApiService.create().activate(phone, udid, "", "android", null, code)
+        ApiService.create().activate(phone, udid, android.os.Build.MODEL, "android", null, code)
             .enqueue(object : Callback<ActivationResponse> {
 
             override fun onResponse(call: Call<ActivationResponse>, response: Response<ActivationResponse>) {
@@ -25,10 +26,12 @@ class CodePresenter(private val context: Context, private val codeView: CodeCont
                     val prefs = UserPreferencesHelper(context)
                     val bodyData = response.body()
                     prefs.savePhone(bodyData?.phone)
-                    prefs.saveUdid(bodyData?.udid)
-                    prefs.saveId(bodyData?.id)
+                    //prefs.saveUdid(bodyData?.udid)
+                    //prefs.saveId(bodyData?.id)
+                    prefs.saveToken(bodyData?.token)
                     codeView.done()
                 } else {
+                    Log.i("Failed Response", response.message())
                     codeView.setMessage("ارسال اطلاعات با مشکل مواجه شد.")
                     codeView.enableSubmit()
                 }

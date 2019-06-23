@@ -18,7 +18,7 @@ interface PhoneContract {
 
     interface Presenter : BasePresenter {
 
-        fun login(phone: String, udid: String)
+        fun login(phone: String)
 
     }
 

@@ -18,7 +18,7 @@
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
     <style name="NavigationViewItemTextAppearance">
-        <item name="android:fontFamily">@font/font_iransansmobile_medium</item>
+        <item name="android:fontFamily">@font/font_iransansmobile_light</item>
         <item name="android:textSize">14sp</item>
     </style>
 

@@ -29,13 +29,19 @@ class PhoneFragment : Fragment(), PhoneContract.View {
 
     private fun initUiListeners() {
         button_phone_send.setOnClickListener {
-            Utils.hideKeyboard(this.activity!!)
-            if (validatePhone()) {
-                Log.i("PhoneInfo", getFUllPhoneNumber())
-                mPresenter.login(getFUllPhoneNumber(), Utils.udid(context!!))
+            if (Utils.isConnectedToInternet(context!!)) {
+                Utils.hideKeyboard(this.activity!!)
+                if (validatePhone()) {
+                    Log.i("PhoneInfo", getFUllPhoneNumber())
+                    //TODO [change this part later
+                    mPresenter.login(getFUllPhoneNumber())
+                } else {
+                    setMessage("شماره همراه وارد شده صحیح نمی‌باشد.")
+                }
             } else {
-                setMessage("شماره همراه وارد شده صحیح نمی‌باشد.")
+                setMessage("دسترسی به اینترنت موجود نمی‌باشد.")
             }
+
         }
     }
 
@@ -56,6 +62,7 @@ class PhoneFragment : Fragment(), PhoneContract.View {
             val launchIntent = Intent(context, CodeActivity::class.java)
             launchIntent.putExtra("data", bundle)
             startActivity(launchIntent)
+            activity?.finish()
         }, 2500)
     }
 

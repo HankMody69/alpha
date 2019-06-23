@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#cacaca"
+    android:layoutDirection="rtl">
+
+    <androidx.cardview.widget.CardView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="8dp">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:adjustViewBounds="true"
+                android:maxWidth="120dp"
+                android:maxHeight="120dp"
+                android:layout_marginTop="16dp"
+                android:src="@drawable/exchange"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginBottom="16dp"/>
+
+                <FrameLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/stroke_1dp"
+                    android:layout_marginTop="16dp"
+                    android:layout_marginBottom="8dp">
+
+                    <Spinner
+                        android:id="@+id/spinner_exchange_currencies"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        app:ms_background_selector="@null"
+                        app:ms_arrow_tint="@color/colorAccent"
+                        app:ms_hint="@string/hint_spinner_choosecurrency"
+                        android:layoutDirection="ltr">
+                    </Spinner>
+
+                </FrameLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/hint_exchange_base"
+                app:boxStrokeColor="@color/colorPrimary"
+                android:layout_marginBottom="8dp">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittext_exchange_base"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:inputType="numberDecimal"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/font_iransansmobile_medium"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+            <com.google.android.material.textfield.TextInputLayout
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:boxStrokeColor="@color/colorPrimary">
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/edittext_exchange_converted"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:hint="@string/hint_exchange_converted"
+                    android:inputType="numberDecimal"
+                    android:textSize="14sp"
+                    android:fontFamily="@font/font_iransansmobile_medium"/>
+
+            </com.google.android.material.textfield.TextInputLayout>
+
+        </LinearLayout>
+
+    </androidx.cardview.widget.CardView>
+
+    <ProgressBar
+        android:id="@+id/progressbar_exchange"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"/>
+
+</FrameLayout>

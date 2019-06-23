@@ -1,6 +1,8 @@
 package com.example.alpha.data.network
 
 import com.example.alpha.data.network.model.ActivationResponse
+import com.example.alpha.data.network.model.Currency
+import com.example.alpha.data.network.model.CurrencyRate
 import com.example.alpha.data.network.model.LoginResponse
 import retrofit2.Call
 import retrofit2.Retrofit
@@ -21,6 +23,12 @@ interface ApiService {
                  @Field("deviceName") deviceName: String?, @Field("deviceType") deviceType: String?,
                  @Field("firebaseRegistrationId") firebaseId: String?, @Field("activationCode") code: String)
     : Call<ActivationResponse>
+
+    @HTTP(method = "LIST", path = "apiv1/currencies")
+    fun getCurrencies(): Call<List<Currency>>
+
+    @HTTP(method = "LIST", path = "apiv1/rates")
+    fun getCurrenciesRate(): Call<List<CurrencyRate>>
 
     companion object {
 

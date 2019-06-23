@@ -11,8 +11,8 @@ import androidx.fragment.app.Fragment
 import com.example.alpha.R
 import com.example.alpha.data.network.model.LoginResponse
 import com.example.alpha.ui.home.HomeActivity
+import com.example.alpha.util.Utils
 import com.example.alpha.util.snack
-import kotlinx.android.synthetic.main.activity_code.*
 import kotlinx.android.synthetic.main.fragment_code.*
 
 class CodeFragment : Fragment(), CodeContract.View {
@@ -21,8 +21,7 @@ class CodeFragment : Fragment(), CodeContract.View {
     private lateinit var data: LoginResponse
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
-        val root = inflater.inflate(R.layout.fragment_code, container, false)
-        return root
+        return inflater.inflate(R.layout.fragment_code, container, false)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
@@ -34,8 +33,14 @@ class CodeFragment : Fragment(), CodeContract.View {
 
     private fun initUiListeners() {
         button_code_send.setOnClickListener {
-            val code = edittext_code_activationcode.text.toString()
-            mPresenter.activateLogin(code, data.phone, data.udid)
+            if (Utils.isConnectedToInternet(context!!)) {
+                Utils.hideKeyboard(this.activity!!)
+                val code = edittext_code_activationcode.text.toString()
+                Log.i("Code Response", "info: $code - ${data.phone} - ${data.udid}")
+                mPresenter.activateLogin(code, data.phone, data.udid)
+            } else {
+                setMessage("دسترسی به اینترنت موجود نمی‌باشد.")
+            }
         }
     }
 
@@ -55,6 +60,7 @@ class CodeFragment : Fragment(), CodeContract.View {
         Handler().postDelayed({
             val launchIntent = Intent(context, HomeActivity::class.java)
             startActivity(launchIntent)
+            activity?.finish()
         }, 2500)
     }
 

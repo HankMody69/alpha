@@ -1,40 +1,46 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.coordinatorlayout.widget.CoordinatorLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:layoutDirection="rtl">
+    android:background="#cacaca"
+    tools:context=".ui.exchange.ExchangeActivity">
 
     <com.google.android.material.appbar.AppBarLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content">
 
         <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar_phone"
+            android:id="@+id/toolbar_exchange"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
-            app:title="@string/toolbar_phone_title"
-            app:titleTextAppearance="@style/ToolbarTitleAppearance"
-            app:titleTextColor="#ffffff"
             android:background="@color/colorPrimary">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/toolbar_phone_title"
+                android:layout_gravity="center"
                 android:textSize="16sp"
-                android:textColor="#ffffff"
-                android:fontFamily="@font/font_iransansmobile_medium"
-                android:layout_gravity="center"/>
+                android:text="@string/toolbar_exchange_title"
+                style="@style/ToolbarTitleAppearance"/>
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>
 
-    <FrameLayout
-        android:id="@+id/framelayout_phone_container"
+    <androidx.core.widget.NestedScrollView
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         app:layout_behavior="com.google.android.material.appbar.AppBarLayout$ScrollingViewBehavior">
-    </FrameLayout>
+
+        <FrameLayout
+            android:id="@+id/framelayout_exchange_container"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+        </FrameLayout>
+
+    </androidx.core.widget.NestedScrollView>
 
 </androidx.coordinatorlayout.widget.CoordinatorLayout>
