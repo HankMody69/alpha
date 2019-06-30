@@ -11,6 +11,7 @@ import com.google.android.material.navigation.NavigationView
 import androidx.appcompat.app.AppCompatActivity
 import androidx.appcompat.widget.Toolbar
 import com.example.alpha.R
+import com.example.alpha.ui.currencylist.CurrencyListActivity
 import com.example.alpha.ui.exchange.ExchangeActivity
 import com.example.alpha.util.Utils
 import okhttp3.internal.Util
@@ -66,6 +67,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
     override fun onNavigationItemSelected(item: MenuItem): Boolean {
         when (item.itemId) {
             R.id.nav_currencies -> {
+                startActivity(Intent(this, CurrencyListActivity::class.java))
             }
             R.id.nav_exchange -> {
                 startActivity(Intent(this, ExchangeActivity::class.java))

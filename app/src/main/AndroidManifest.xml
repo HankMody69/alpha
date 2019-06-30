@@ -3,7 +3,7 @@
     package="com.example.alpha">
 
     <uses-permission android:name="android.permission.INTERNET" />
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
 
     <application
         android:allowBackup="true"
@@ -12,10 +12,20 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.exchange.ExchangeActivity" android:screenOrientation="portrait" />
-        <activity android:name=".ui.login.code.CodeActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ui.login.phone.PhoneActivity" android:screenOrientation="portrait"/>
-        <activity android:name=".ui.home.HomeActivity" android:screenOrientation="portrait">
+        <activity android:name=".ui.currencylist.CurrencyListActivity"
+            android:screenOrientation="portrait"/>
+        <activity
+            android:name=".ui.exchange.ExchangeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.code.CodeActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.login.phone.PhoneActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".ui.home.HomeActivity"
+            android:screenOrientation="portrait">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

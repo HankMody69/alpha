@@ -26,4 +26,5 @@
     <string name="hint_exchange_converted">مبلغ واحد تبدیل شده</string>
     <string name="toolbar_exchange_title">تبدیل ارزی</string>
     <string name="hint_spinner_choosecurrency">انتخاب واحد تبدیل شونده</string>
+    <string name="toolbar_currencylist">لیست ارزها</string>
 </resources>
