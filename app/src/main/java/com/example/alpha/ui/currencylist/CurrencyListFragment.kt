@@ -21,7 +21,7 @@ class CurrencyListFragment : Fragment(), CurrencyListContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        //initUiComponents()
+        initUiListeners()
         mPresenter.getCurrencies()
     }
 
@@ -45,13 +45,9 @@ class CurrencyListFragment : Fragment(), CurrencyListContract.View {
         framelayout_currencylist_root.snack(message) {}
     }
 
-    /*private fun initUiComponents() {
-        with(recyclerview_currencylist_currencies) {
-            layoutManager = LinearLayoutManager(context)
-            this@CurrencyListFragment.adapter = CurrencyListAdapter()
-            adapter = this.adapter
-        }
-    }*/
+    private fun initUiListeners() {
+        linearlayout_currencylist_saveall.setOnClickListener { mPresenter.saveAllCurrencies(context!!) }
+    }
 
     companion object {
         fun newInstance() = CurrencyListFragment()

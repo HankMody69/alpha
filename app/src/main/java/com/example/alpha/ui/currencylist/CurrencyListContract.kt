@@ -18,6 +18,7 @@ interface CurrencyListContract {
         fun getCurrencies()
         fun saveCurrency(applicationContext: Context, position: Int)
         fun getSavedCurrencies(applicationContext: Context)
+        fun saveAllCurrencies(applicationContext: Context)
     }
 
 }

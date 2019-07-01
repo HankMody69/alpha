@@ -72,4 +72,26 @@ class CurrencyListPresenter(private val view: CurrencyListContract.View) : Curre
             Log.e("INFO", "currencies: $data")
         }
     }
+
+    override fun saveAllCurrencies(applicationContext: Context) {
+        val models = mutableListOf<com.example.alpha.data.database.Currency>()
+        for (currency in currencies) {
+            val model = com.example.alpha.data.database.Currency(
+                null,
+                currency.name,
+                currency.code,
+                currency.symbol
+            )
+            models.add(model)
+
+        }
+        doAsync {
+            val result = AppDatabase.getInstance(applicationContext).currencyDao().insertAll(*models.toTypedArray())
+            uiThread {
+                if (result.isNotEmpty()) {
+                    view.setMessage("تمامی موارد با موفقیت ذخیره شدند.")
+                }
+            }
+        }
+    }
 }
