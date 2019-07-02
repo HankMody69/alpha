@@ -1,9 +1,8 @@
 package com.example.alpha.ui.currencylist
 
 import android.content.Context
-import android.os.AsyncTask
 import android.util.Log
-import com.example.alpha.data.database.AppDatabase
+import com.example.alpha.data.database.room.AppDatabase
 import com.example.alpha.data.network.ApiService
 import com.example.alpha.data.network.model.Currency
 import org.jetbrains.anko.doAsync
@@ -49,7 +48,7 @@ class CurrencyListPresenter(private val view: CurrencyListContract.View) : Curre
 
     override fun saveCurrency(applicationContext: Context, position: Int) {
         val currencyNetworkModel = currencies[position]
-        val model = com.example.alpha.data.database.Currency(
+        val model = com.example.alpha.data.database.room.Currency(
             null,
             currencyNetworkModel.name,
             currencyNetworkModel.code,
@@ -74,9 +73,9 @@ class CurrencyListPresenter(private val view: CurrencyListContract.View) : Curre
     }
 
     override fun saveAllCurrencies(applicationContext: Context) {
-        val models = mutableListOf<com.example.alpha.data.database.Currency>()
+        val models = mutableListOf<com.example.alpha.data.database.room.Currency>()
         for (currency in currencies) {
-            val model = com.example.alpha.data.database.Currency(
+            val model = com.example.alpha.data.database.room.Currency(
                 null,
                 currency.name,
                 currency.code,

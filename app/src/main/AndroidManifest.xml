@@ -12,8 +12,11 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".ui.currencylist.CurrencyListActivity"
-            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.wallet.add.AddWalletActivity"></activity>
+        <activity android:name=".ui.wallet.list.WalletListActivity" />
+        <activity
+            android:name=".ui.currencylist.CurrencyListActivity"
+            android:screenOrientation="portrait" />
         <activity
             android:name=".ui.exchange.ExchangeActivity"
             android:screenOrientation="portrait" />

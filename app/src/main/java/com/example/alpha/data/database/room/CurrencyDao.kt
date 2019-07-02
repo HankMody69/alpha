@@ -1,4 +1,4 @@
-package com.example.alpha.data.database
+package com.example.alpha.data.database.room
 
 import androidx.room.*
 
@@ -9,4 +9,5 @@ interface CurrencyDao {
 
     @Query("SELECT * FROM currency")
     fun getAll(): List<Currency>
+
 }

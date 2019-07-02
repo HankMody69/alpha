@@ -13,6 +13,7 @@ import androidx.appcompat.widget.Toolbar
 import com.example.alpha.R
 import com.example.alpha.ui.currencylist.CurrencyListActivity
 import com.example.alpha.ui.exchange.ExchangeActivity
+import com.example.alpha.ui.wallet.list.WalletListActivity
 import com.example.alpha.util.Utils
 import okhttp3.internal.Util
 import java.util.*
@@ -73,7 +74,7 @@ class HomeActivity : AppCompatActivity(), NavigationView.OnNavigationItemSelecte
                 startActivity(Intent(this, ExchangeActivity::class.java))
             }
             R.id.nav_wallets -> {
-
+                startActivity(Intent(this, WalletListActivity::class.java))
             }
             R.id.item_home_logout -> {
                 mPresenter.logout(this)
