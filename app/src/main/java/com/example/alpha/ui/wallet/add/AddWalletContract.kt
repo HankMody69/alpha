@@ -10,6 +10,8 @@ interface AddWalletContract {
         fun initList(data: List<String>)
         fun showMessage(message: String)
         fun finishWithResult(result: Int, data: String)
+        fun dismissProgress()
+        fun showProgress()
     }
 
     interface Presenter : BasePresenter {

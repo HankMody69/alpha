@@ -15,7 +15,9 @@
             android:id="@+id/toolbar_currencylist"
             android:layout_width="match_parent"
             android:layout_height="?android:attr/actionBarSize"
+            app:navigationIcon="@drawable/arrow_right"
             android:background="@color/colorPrimary">
+
             <TextView
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
@@ -23,6 +25,14 @@
                 android:textSize="16sp"
                 android:text="@string/toolbar_currencylist"
                 style="@style/ToolbarTitleAppearance"/>
+
+            <ProgressBar
+                android:id="@+id/progressbar_currencylist"
+                android:layout_width="28dp"
+                android:layout_height="28dp"
+                android:layout_gravity="end"
+                android:layout_marginEnd="8dp"/>
+
         </androidx.appcompat.widget.Toolbar>
 
     </com.google.android.material.appbar.AppBarLayout>

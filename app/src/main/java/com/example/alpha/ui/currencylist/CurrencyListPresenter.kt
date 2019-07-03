@@ -21,10 +21,10 @@ class CurrencyListPresenter(private val view: CurrencyListContract.View) : Curre
 
     override fun getCurrencies() {
         view.showProgress()
+        view.setMessage("در حال به روزرسانی...")
         ApiService.create().getCurrencies().enqueue(object : Callback<List<Currency>> {
             override fun onResponse(call: Call<List<Currency>>, response: Response<List<Currency>>) {
                 if (response.code() == 200) {
-                    view.setMessage("در حال به روز رسانی...")
                     val data = response.body()
                     if (data != null) {
                         currencies = data

@@ -71,11 +71,4 @@
 
     </LinearLayout>
 
-    <ProgressBar
-        android:visibility="invisible"
-        android:id="@+id/progressbar_currencylist"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="center" />
-
 </FrameLayout>

@@ -15,6 +15,7 @@ class WalletListActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_walletlist)
+        initUiComponents()
         initUiListeners()
         setupFragment()
     }
@@ -39,6 +40,12 @@ class WalletListActivity : AppCompatActivity() {
         fragment = WalletListFragment.newInstance()
         WalletListPresenter(fragment)
         supportFragmentManager.beginTransaction().replace(R.id.framelayout_walletlist_container, fragment).commit()
+    }
+
+    private fun initUiComponents() {
+        setSupportActionBar(toolbar_walletlist)
+        supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar_walletlist.setNavigationOnClickListener { finish() }
     }
 
 }

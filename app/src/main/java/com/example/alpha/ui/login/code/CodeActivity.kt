@@ -12,6 +12,8 @@ class CodeActivity : AppCompatActivity() {
         setContentView(R.layout.activity_code)
         setSupportActionBar(toolbar_code)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        supportActionBar?.setDisplayHomeAsUpEnabled(true)
+        toolbar_code.setNavigationOnClickListener { finish() }
         val bundle = intent.getBundleExtra("data")
         val fragment = CodeFragment.newInstance(bundle)
         supportFragmentManager.beginTransaction().replace(R.id.framelayout_code_container, fragment).commit()

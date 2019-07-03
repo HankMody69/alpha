@@ -16,6 +16,7 @@
             app:title="@string/toolbar_phone_title"
             app:titleTextAppearance="@style/ToolbarTitleAppearance"
             app:titleTextColor="#ffffff"
+            app:navigationIcon="@drawable/arrow_right"
             android:background="@color/colorPrimary">
             <TextView
                 android:layout_width="wrap_content"

@@ -16,6 +16,7 @@
             android:id="@+id/toolbar_walletlist"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            app:navigationIcon="@drawable/arrow_right"
             android:background="@color/colorPrimary">
 
             <TextView

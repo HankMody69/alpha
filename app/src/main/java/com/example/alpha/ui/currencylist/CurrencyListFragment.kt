@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ProgressBar
 import androidx.fragment.app.Fragment
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.alpha.R
@@ -26,11 +27,11 @@ class CurrencyListFragment : Fragment(), CurrencyListContract.View {
     }
 
     override fun showProgress() {
-        progressbar_currencylist.visibility = View.VISIBLE
+        activity?.findViewById<ProgressBar>(R.id.progressbar_currencylist)?.visibility = View.VISIBLE
     }
 
     override fun dismissProgress() {
-        progressbar_currencylist.visibility = View.GONE
+        activity?.findViewById<ProgressBar>(R.id.progressbar_currencylist)?.visibility = View.GONE
     }
 
     override fun updateList(currencies: List<Currency>) {

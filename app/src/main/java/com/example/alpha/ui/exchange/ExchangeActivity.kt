@@ -1,7 +1,9 @@
 package com.example.alpha.ui.exchange
 
+import android.graphics.PorterDuff
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import androidx.core.content.ContextCompat
 import com.example.alpha.R
 import kotlinx.android.synthetic.main.activity_exchange.*
 
@@ -17,6 +19,9 @@ class ExchangeActivity : AppCompatActivity() {
     private fun initUiComponents() {
         setSupportActionBar(toolbar_exchange)
         supportActionBar?.setDisplayShowTitleEnabled(false)
+        toolbar_exchange.setNavigationOnClickListener { finish() }
+        progressbar_exchange.indeterminateDrawable
+            .setColorFilter(ContextCompat.getColor(this, R.color.white), PorterDuff.Mode.SRC_IN)
     }
 
     private fun initFragment() {

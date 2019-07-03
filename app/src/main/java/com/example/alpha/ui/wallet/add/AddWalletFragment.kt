@@ -6,10 +6,13 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ArrayAdapter
+import android.widget.ProgressBar
+import androidx.annotation.NonNull
 import androidx.fragment.app.Fragment
 import com.example.alpha.R
 import com.example.alpha.util.snack
 import kotlinx.android.synthetic.main.fragment_addwallet.*
+import org.jetbrains.annotations.NonNls
 
 class AddWalletFragment : Fragment(), AddWalletContract.View {
 
@@ -47,6 +50,14 @@ class AddWalletFragment : Fragment(), AddWalletContract.View {
         intent.putExtra("data", data)
         activity?.setResult(result, intent)
         activity?.finish()
+    }
+
+    override fun dismissProgress() {
+        activity?.findViewById<ProgressBar>(R.id.progressbar_addwallet)?.visibility = View.GONE
+    }
+
+    override fun showProgress() {
+        activity?.findViewById<ProgressBar>(R.id.progressbar_addwallet)?.visibility = View.VISIBLE
     }
 
     companion object {

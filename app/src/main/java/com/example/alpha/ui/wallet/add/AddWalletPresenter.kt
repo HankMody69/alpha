@@ -20,21 +20,23 @@ class AddWalletPresenter(private val view: AddWalletContract.View) : AddWalletCo
     }
 
     override fun getCurrencies() {
+        view.showProgress()
+        view.showMessage("در حال به‌روزرسانی لیست ارزها")
         ApiService.create().getCurrencies().enqueue(object : Callback<List<Currency>> {
-
             override fun onResponse(call: Call<List<Currency>>, response: Response<List<Currency>>) {
                 if (response.code() == 200) {
                     val data = response.body()
                     if (data != null && data.isNotEmpty()) {
                         currencies = data
-                        view.showMessage("در حال به‌روزرسانی لیست ارزها")
                         view.initList(data.map { it.name })
+                        view.dismissProgress()
                     }
                 }
             }
 
             override fun onFailure(call: Call<List<Currency>>, t: Throwable) {
                 view.showMessage("خطا در ردیافت اطلاعات از سرور")
+                view.dismissProgress()
             }
 
         })
@@ -43,7 +45,7 @@ class AddWalletPresenter(private val view: AddWalletContract.View) : AddWalletCo
     override fun addWallet(context: Context, name: String, currency: String) {
         val dbHelper = DatabaseContract.AppDatabaseHelper(context)
         val db = dbHelper.writableDatabase
-        // Create a new map of values, where column names are the keys
+
         val values = ContentValues().apply {
             put(DatabaseContract.Currency.COLUMN_NAME_NAME, name)
             put(DatabaseContract.Currency.COLUMN_NAME_CURRENCY, currency)

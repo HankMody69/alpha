@@ -10,6 +10,7 @@ import androidx.fragment.app.Fragment
 import com.example.alpha.R
 import android.widget.ArrayAdapter
 import android.widget.ListAdapter
+import android.widget.ProgressBar
 import com.example.alpha.data.network.model.Currency
 import com.example.alpha.util.snack
 import com.jaredrummler.materialspinner.MaterialSpinnerAdapter
@@ -40,11 +41,11 @@ class ExchangeFragment : Fragment(), ExchangeContract.View {
     }
 
     override fun showProgress() {
-        progressbar_exchange.visibility = View.VISIBLE
+        activity?.findViewById<ProgressBar>(R.id.progressbar_exchange)?.visibility = View.VISIBLE
     }
 
     override fun dismissProgress() {
-        progressbar_exchange.visibility = View.GONE
+        activity?.findViewById<ProgressBar>(R.id.progressbar_exchange)?.visibility = View.GONE
     }
 
     override fun updateList(data: List<String>) {

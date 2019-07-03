@@ -16,12 +16,11 @@ class CodePresenter(private val context: Context, private val codeView: CodeCont
     }
 
     override fun activateLogin(code: String, phone: String, udid: String) {
+        codeView.disableSubmit()
         ApiService.create().activate(phone, udid, android.os.Build.MODEL, "android", null, code)
             .enqueue(object : Callback<ActivationResponse> {
-
             override fun onResponse(call: Call<ActivationResponse>, response: Response<ActivationResponse>) {
                 if (response.isSuccessful && response.code() == 200) {
-                    codeView.disableSubmit()
                     codeView.setMessage("ارسال اطلاعات موفقیت آمیز بود. منتظر باشید!")
                     val prefs = UserPreferencesHelper(context)
                     val bodyData = response.body()
