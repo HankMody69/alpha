@@ -11,6 +11,9 @@ interface ExchangeContract {
         fun dismissProgress()
         fun updateList(data: List<String>)
         fun updateRate(number: Double)
+        fun disableExchange()
+        fun enableExchange()
+        fun showMessage(message: String)
 
     }
 

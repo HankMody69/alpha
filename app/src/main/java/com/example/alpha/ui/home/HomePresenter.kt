@@ -32,4 +32,5 @@ class HomePresenter(private val context: Context, private val homeView: HomeCont
         activity.startActivity(launchActivity)
         activity.finish()
     }
+
 }

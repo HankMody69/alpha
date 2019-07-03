@@ -11,6 +11,7 @@ import com.example.alpha.R
 import android.widget.ArrayAdapter
 import android.widget.ListAdapter
 import com.example.alpha.data.network.model.Currency
+import com.example.alpha.util.snack
 import com.jaredrummler.materialspinner.MaterialSpinnerAdapter
 import kotlinx.android.synthetic.main.fragment_exchange.*
 
@@ -27,6 +28,7 @@ class ExchangeFragment : Fragment(), ExchangeContract.View {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        disableExchange()
         initUiListeners()
         mPresenter.getCurrencyList()
         mPresenter.getCurrencyRateList()
@@ -38,9 +40,11 @@ class ExchangeFragment : Fragment(), ExchangeContract.View {
     }
 
     override fun showProgress() {
+        progressbar_exchange.visibility = View.VISIBLE
     }
 
     override fun dismissProgress() {
+        progressbar_exchange.visibility = View.GONE
     }
 
     override fun updateList(data: List<String>) {
@@ -106,4 +110,17 @@ class ExchangeFragment : Fragment(), ExchangeContract.View {
 
     }
 
+    override fun disableExchange() {
+        edittext_exchange_base.isEnabled = false
+        edittext_exchange_converted.isEnabled = false
+    }
+
+    override fun enableExchange() {
+        edittext_exchange_base.isEnabled = true
+        edittext_exchange_converted.isEnabled = true
+    }
+
+    override fun showMessage(message: String) {
+        framelayout_exchange_root.snack(message) {}
+    }
 }

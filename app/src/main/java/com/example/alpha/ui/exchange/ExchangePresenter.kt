@@ -27,11 +27,13 @@ class ExchangePresenter(private val exchangeView: ExchangeContract.View) : Excha
                     if (mCurrencies.isNotEmpty()) {
                         val names = mCurrencies.map { it.name }
                         exchangeView.updateList(names)
+                        exchangeView.dismissProgress()
+                        exchangeView.enableExchange()
                     }
                 }
             }
             override fun onFailure(call: Call<List<Currency>>, t: Throwable) {
-
+                exchangeView.showMessage("خطا در دریافت اطلاعات")
             }
 
         })
